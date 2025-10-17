@@ -1389,45 +1389,38 @@ section,
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
-/* ===== Victor: HERO (background + recorte elegante) ===== */
-.hero {
+/* HERO com background (sem <img> dentro) */
+.hero{
   position: relative;
-  /* altura bem menor no mobile e confortável no desktop */
-  min-height: clamp(260px, 42vh, 520px);
-
-  /* bordas arredondadas + evita vazar a imagem */
+  min-height: clamp(320px, 56vh, 720px);
   border-radius: 0 0 36px 36px;
   overflow: hidden;
 
-  /* imagem como background */
+  /* degrade lateral + foto */
   background-image:
-    linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.28)),  /* leve escurecida pra legibilidade */
+    linear-gradient(90deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,.55) 28%, rgba(0,0,0,.25) 52%, rgba(0,0,0,0) 72%),
     var(--hero-img);
-  background-size: cover;         /* cobre sem distorcer */
+  background-size: cover;
+  background-position: 72% 50%;   /* puxa a imagem pra direita; ajuste 65–85% se quiser */
   background-repeat: no-repeat;
-  background-position: 50% 30%;   /* ajuste fino do enquadramento (mova 10–40% se quiser) */
 
-  /* espaço pro menu fixo, se tiver */
-  padding-top: 72px;
+  padding-top: 80px;   /* espaço pro header fixo */
   padding-bottom: 28px;
 }
 
-/* conteúdo interno do hero */
-.hero .hero__content {
+/* conteúdo por cima da imagem */
+.hero .hero__content{
   position: relative;
   z-index: 1;
-  padding: 24px 24px 8px 24px;
 }
 
-/* Desktop: um pouco mais alto, mas sem exagero */
-@media (min-width: 992px) {
-  .hero {
-    min-height: clamp(360px, 56vh, 640px);
-    border-radius: 0 0 42px 42px;
-  }
-  .hero .hero__content {
-    padding: 40px;
-  }
+/* GARANTIR que nenhuma regra antiga de <img> atrapalhe */
+.hero > img{ display: none !important; }
+
+@media (max-width: 768px){
+  .hero{ min-height: clamp(280px, 48vh, 560px); }
+  .hero{ background-position: 65% 50%; } /* enquadramento um pouco mais central no mobile */
 }
+
 
 
