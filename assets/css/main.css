@@ -1613,3 +1613,16 @@ i.text-success { color: var(--vt-accent) !important; }
 
 /* Botões sociais no footer/hero se herdarem a cor de accent */
 .social-links a:hover { color: #fff !important; background: var(--vt-accent) !important; border-color: var(--vt-accent) !important; }
+
+/* aumenta só o h2 desta seção */
+.titulo-lg{
+  font-size: 24px !important;   /* ajuste o tamanho que preferir (ex.: 28px, 32px) */
+  line-height: 1.2 !important;  /* corrige o line-height que o template deixa em 1px */
+  letter-spacing: .08em;         /* opcional: um leve espaçamento */
+}
+
+/* opcional: alongar a barrinha ao lado do título */
+.section-title h2::after{
+  width: 160px;    /* era 120px */
+  height: 2px;     /* um pouquinho mais grossa */
+}
