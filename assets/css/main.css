@@ -1396,7 +1396,7 @@ section,
   border-radius: 0 0 36px 36px;
   overflow: hidden;
 
-  background-image: var(--hero-img) !important;   /* camada base: sua foto */
+  background-image: url('https://picsum.photos/1600/900') !important;   /* camada base: sua foto */
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: 78% 50% !important;        /* ajuste fino do enquadramento */
