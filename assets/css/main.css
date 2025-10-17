@@ -1389,38 +1389,43 @@ section,
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
-/* HERO com background (sem <img> dentro) */
-.hero{
+/* === HERO: força background a aparecer e ficar bonito === */
+#hero.hero{
   position: relative;
-  min-height: clamp(320px, 56vh, 720px);
+  min-height: clamp(320px, 56vh, 720px) !important;
   border-radius: 0 0 36px 36px;
   overflow: hidden;
 
-  /* degrade lateral + foto */
-  background-image:
-    linear-gradient(90deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,.55) 28%, rgba(0,0,0,.25) 52%, rgba(0,0,0,0) 72%),
-    var(--hero-img);
-  background-size: cover;
-  background-position: 72% 50%;   /* puxa a imagem pra direita; ajuste 65–85% se quiser */
-  background-repeat: no-repeat;
+  background-image: var(--hero-img) !important;   /* camada base: sua foto */
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: 78% 50% !important;        /* ajuste fino do enquadramento */
 
-  padding-top: 80px;   /* espaço pro header fixo */
+  padding-top: 80px;
   padding-bottom: 28px;
 }
 
-/* conteúdo por cima da imagem */
-.hero .hero__content{
+/* camada de degradê por cima da foto para legibilidade */
+#hero.hero::before{
+  content:"";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(90deg,
+              rgba(0,0,0,.75) 0%,
+              rgba(0,0,0,.55) 28%,
+              rgba(0,0,0,.25) 52%,
+              rgba(0,0,0,0) 72%);
+}
+
+/* garante que o texto fique acima do degradê */
+#hero .container{
   position: relative;
   z-index: 1;
 }
 
-/* GARANTIR que nenhuma regra antiga de <img> atrapalhe */
-.hero > img{ display: none !important; }
-
-@media (max-width: 768px){
-  .hero{ min-height: clamp(280px, 48vh, 560px); }
-  .hero{ background-position: 65% 50%; } /* enquadramento um pouco mais central no mobile */
-}
+/* se ainda existir algum <img> dentro do hero, neutraliza */
+#hero > img{ display:none !important; }
 
 
 
