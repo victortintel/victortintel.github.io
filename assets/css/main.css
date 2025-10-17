@@ -1389,21 +1389,29 @@ section,
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
-/* ===== Victor: ajustes do HERO ===== */
+/* ===== Victor: versão reduzida do HERO ===== */
 .hero {
   position: relative;
-  min-height: 70vh;              /* altura mínima do bloco */
-}
-.hero img {
-  width: 100%;
-  height: 70vh;                  /* limita a altura da foto */
-  object-fit: cover;             /* preenche cortando as sobras */
-  object-position: center 30%;   /* ajuste o enquadramento (top/center/bottom) */
-  filter: brightness(0.75);      /* escurece um pouco para o texto ficar legível */
+  min-height: 40vh;          /* altura total menor do banner */
+  padding-top: 80px;         /* espaço pro menu fixo */
 }
 
-/* em telas grandes, dá um pouco mais de altura */
-@media (min-width: 992px) {
-  .hero { min-height: 85vh; }
-  .hero img { height: 85vh; }
+.hero img {
+  width: 100%;
+  height: 40vh;              /* define altura da imagem */
+  object-fit: cover;
+  object-position: center 25%;
+  filter: brightness(0.8);
+  border-radius: 0 0 30px 30px; /* borda arredondada opcional */
 }
+
+/* Ajuste para desktop */
+@media (min-width: 992px) {
+  .hero {
+    min-height: 45vh;
+  }
+  .hero img {
+    height: 45vh;
+  }
+}
+
