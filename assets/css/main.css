@@ -1534,7 +1534,7 @@ section,
 .about .profile-photo {
   /* largura responsiva: nunca menor que 220px, cresce até 32vw, 
      mas nunca passa de 420px */
-  inline-size: clamp(220px, 32vw, 420px);
+  inline-size: clamp(220px, 32vw, 320px);
   block-size: auto;          /* mantém proporção */
   object-fit: cover;         /* garante bom enquadramento */
   object-position: center;   /* centraliza o recorte */
