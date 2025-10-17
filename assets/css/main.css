@@ -1389,29 +1389,45 @@ section,
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
-/* ===== Victor: versão reduzida do HERO ===== */
+/* ===== Victor: HERO (background + recorte elegante) ===== */
 .hero {
   position: relative;
-  min-height: 40vh;          /* altura total menor do banner */
-  padding-top: 80px;         /* espaço pro menu fixo */
+  /* altura bem menor no mobile e confortável no desktop */
+  min-height: clamp(260px, 42vh, 520px);
+
+  /* bordas arredondadas + evita vazar a imagem */
+  border-radius: 0 0 36px 36px;
+  overflow: hidden;
+
+  /* imagem como background */
+  background-image:
+    linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.28)),  /* leve escurecida pra legibilidade */
+    var(--hero-img);
+  background-size: cover;         /* cobre sem distorcer */
+  background-repeat: no-repeat;
+  background-position: 50% 30%;   /* ajuste fino do enquadramento (mova 10–40% se quiser) */
+
+  /* espaço pro menu fixo, se tiver */
+  padding-top: 72px;
+  padding-bottom: 28px;
 }
 
-.hero img {
-  width: 100%;
-  height: 40vh;              /* define altura da imagem */
-  object-fit: cover;
-  object-position: center 25%;
-  filter: brightness(0.8);
-  border-radius: 0 0 30px 30px; /* borda arredondada opcional */
+/* conteúdo interno do hero */
+.hero .hero__content {
+  position: relative;
+  z-index: 1;
+  padding: 24px 24px 8px 24px;
 }
 
-/* Ajuste para desktop */
+/* Desktop: um pouco mais alto, mas sem exagero */
 @media (min-width: 992px) {
   .hero {
-    min-height: 45vh;
+    min-height: clamp(360px, 56vh, 640px);
+    border-radius: 0 0 42px 42px;
   }
-  .hero img {
-    height: 45vh;
+  .hero .hero__content {
+    padding: 40px;
   }
 }
+
 
