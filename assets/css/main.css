@@ -1459,3 +1459,73 @@ section,
   color: #000;
 }
 
+
+/* ===== Tema Azul Tech — overrides finais ===== */
+:root {
+  /* Primário azul (links, botões, hovers, detalhes) */
+  --accent-color: #3B82F6;               /* Azul principal */
+  --nav-hover-color: #3B82F6;            /* Hover/ativo no menu desktop */
+  --nav-dropdown-hover-color: #3B82F6;   /* Hover em dropdowns */
+
+  /* (opcional) alinhar Bootstrap à mesma cor */
+  --bs-primary: #3B82F6;
+  --bs-link-color: #3B82F6;
+  --bs-link-hover-color: #2563EB;
+}
+
+/* Força alguns componentes a pegarem o azul (caso algo ainda “lembre” do verde) */
+.navmenu a:hover:before,
+.navmenu li:hover>a:before,
+.navmenu .active:before { background-color: var(--nav-hover-color) !important; }
+
+.navmenu li:hover>a,
+.navmenu .active,
+.navmenu .active:focus { color: var(--nav-hover-color) !important; }
+
+.footer .social-links a,
+.hero .social-links a:hover,
+.services .service-item:hover { background: var(--accent-color) !important; }
+
+.skills .progress-bar { background-color: var(--accent-color) !important; }
+
+.portfolio .portfolio-filters li:hover,
+.portfolio .portfolio-filters li.filter-active { color: var(--accent-color) !important; }
+
+.service-details .services-list a.active { border-color: var(--accent-color) !important; }
+.service-details .services-list a:hover { border-color: var(--accent-color) !important; }
+.interests .features-item:hover { border-color: var(--accent-color) !important; }
+.interests .features-item:hover h3 a { color: var(--accent-color) !important; }
+
+.contact .info-item .icon,
+.contact .php-email-form button[type=submit] {
+  background: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+}
+
+/* Botão primário do Bootstrap na cor do tema */
+.btn-primary {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--bs-link-hover-color) !important;
+  border-color: var(--bs-link-hover-color) !important;
+}
+
+/* Barrinha sob o texto “typed” (no hero) já usa var(--accent-color);
+   este ajuste é só pra garantir visual coerente */
+.hero p span { border-bottom-color: var(--accent-color) !important; }
+
+/* Ícones do menu-mobile (bolinha atrás do caret) usam mix com --accent-color */
+@media (max-width: 1199px) {
+  .navmenu a i,
+  .navmenu a:focus i {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%) !important;
+  }
+  .navmenu .active i,
+  .navmenu .active:focus i {
+    background-color: var(--accent-color) !important;
+    color: var(--contrast-color) !important;
+  }
+}
