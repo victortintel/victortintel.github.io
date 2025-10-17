@@ -1553,3 +1553,63 @@ section,
     inline-size: 260px;
   }
 }
+
+/* ===== Victor Tintel: trocar verde por roxo/azul ===== */
+:root{
+  --vt-accent: #6c63ff;          /* principal */
+  --vt-accent-600: #5848ff;      /* hover */
+  --vt-accent-200: #eef0ff;      /* fundo clarinho */
+  --vt-accent-300: #dcdfff;      /* bordas claras */
+}
+
+/* elementos do tema que usam o accent */
+a:hover,
+.navmenu a:hover,
+.navmenu .active,
+.breadcrumbs ol li a:hover,
+.section .title:after,
+.scroll-top:hover i {
+  color: var(--vt-accent) !important;
+}
+
+/* Botões */
+.btn-success {
+  background-color: var(--vt-accent) !important;
+  border-color: var(--vt-accent) !important;
+  color: #fff !important;
+}
+.btn-success:hover {
+  background-color: var(--vt-accent-600) !important;
+  border-color: var(--vt-accent-600) !important;
+}
+
+.btn-outline-success {
+  color: var(--vt-accent) !important;
+  border-color: var(--vt-accent) !important;
+  background: transparent !important;
+}
+.btn-outline-success:hover {
+  background-color: var(--vt-accent) !important;
+  color: #fff !important;
+}
+
+/* Badges e chips */
+.badge.bg-success-subtle { 
+  background-color: var(--vt-accent-200) !important; 
+  color: var(--vt-accent) !important;
+}
+.border-success { border-color: var(--vt-accent-300) !important; }
+.text-success, .link-success { color: var(--vt-accent) !important; }
+.link-success:hover { color: var(--vt-accent-600) !important; }
+
+/* Ícones com .text-success */
+i.text-success { color: var(--vt-accent) !important; }
+
+/* Barrinhas/underlines de seção do template (se existirem) */
+.section-title h2::after,
+.page-title h1::after {
+  background: var(--vt-accent) !important;
+}
+
+/* Botões sociais no footer/hero se herdarem a cor de accent */
+.social-links a:hover { color: #fff !important; background: var(--vt-accent) !important; border-color: var(--vt-accent) !important; }
