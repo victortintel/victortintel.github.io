@@ -1388,3 +1388,22 @@ section,
 .contact .php-email-form button[type=submit]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
+
+/* ===== Victor: ajustes do HERO ===== */
+.hero {
+  position: relative;
+  min-height: 70vh;              /* altura mínima do bloco */
+}
+.hero img {
+  width: 100%;
+  height: 70vh;                  /* limita a altura da foto */
+  object-fit: cover;             /* preenche cortando as sobras */
+  object-position: center 30%;   /* ajuste o enquadramento (top/center/bottom) */
+  filter: brightness(0.75);      /* escurece um pouco para o texto ficar legível */
+}
+
+/* em telas grandes, dá um pouco mais de altura */
+@media (min-width: 992px) {
+  .hero { min-height: 85vh; }
+  .hero img { height: 85vh; }
+}
