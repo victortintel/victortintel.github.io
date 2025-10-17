@@ -1389,26 +1389,73 @@ section,
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
-/* HERO – forçar a imagem e neutralizar overlays/conflitos */
-#hero.hero{
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  background-position: 78% 50% !important;
-  background-color: transparent !important;  /* não deixe pintar de preto */
-  min-height: clamp(320px, 56vh, 720px) !important;
+/* ===== HERO minimalista com fundo tecnológico ===== */
+#hero.hero {
+  position: relative;
+  background-color: #000; /* base preta elegante */
+  min-height: clamp(320px, 56vh, 720px);
   border-radius: 0 0 36px 36px;
   overflow: hidden;
+  padding-top: 80px;
+  padding-bottom: 28px;
+  display: flex;
+  align-items: center;
 }
 
-/* se sobrou alguma imagem antiga no HTML, some com ela */
-#hero > img{ display: none !important; }
+/* camada sutil de textura tecnológica */
+#hero.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25; /* intensidade da textura */
+  z-index: 0;
+}
 
-/* mata qualquer overlay/pseudo-elemento que escureça tudo */
-#hero.hero::before,
-#hero.hero::after,
-.section.dark-background::before,
-.section.dark-background::after{
-  content: none !important;
-  background: none !important;
+/* conteúdo acima da imagem */
+#hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* textos */
+#hero h2 {
+  font-size: 64px;
+  font-weight: 700;
+  color: #fff;
+}
+
+#hero p {
+  font-size: 26px;
+  color: #ccc;
+}
+
+#hero p span {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+/* ícones */
+#hero .social-links a {
+  background-color: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  transition: 0.3s;
+}
+
+#hero .social-links a:hover {
+  background-color: var(--accent-color);
+  color: #000;
 }
 
