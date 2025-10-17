@@ -1529,3 +1529,27 @@ section,
     color: var(--contrast-color) !important;
   }
 }
+
+/* ===== Victor: tamanho da foto do "Sobre mim" ===== */
+.about .profile-photo {
+  /* largura responsiva: nunca menor que 220px, cresce até 32vw, 
+     mas nunca passa de 420px */
+  inline-size: clamp(220px, 32vw, 420px);
+  block-size: auto;          /* mantém proporção */
+  object-fit: cover;         /* garante bom enquadramento */
+  object-position: center;   /* centraliza o recorte */
+}
+
+/* Em telas muito grandes, permita um pouco mais (opcional) */
+@media (min-width: 1200px) {
+  .about .profile-photo {
+    inline-size: clamp(220px, 28vw, 460px);
+  }
+}
+
+/* Em telas menores, mantenha pequeno (opcional) */
+@media (max-width: 576px) {
+  .about .profile-photo {
+    inline-size: 260px;
+  }
+}
